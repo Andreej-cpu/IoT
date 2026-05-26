@@ -1,0 +1,76 @@
+# Wokwi ESP32 - Biblioteca Componenti
+
+Questa Wiki raccoglie la documentazione per l'ambiente di simulazione Wokwi, ottimizzata per **ESP32**.
+
+## 📖 Guide Fondamentali
+- Diagram Json: [diagram-json.md](guides/diagram-json.md)
+- Esp32 Boards: [esp32-boards.md](guides/esp32-boards.md)
+- Esp32 Wifi: [esp32-wifi.md](guides/esp32-wifi.md)
+
+## 📺 Display e Matrici
+- Grove Oled Sh1107: [board-grove-oled-sh1107.md](displays/board-grove-oled-sh1107.md)
+- Ssd1306: [board-ssd1306.md](displays/board-ssd1306.md)
+- 7Segment: [wokwi-7segment.md](displays/wokwi-7segment.md)
+- Ili9341: [wokwi-ili9341.md](displays/wokwi-ili9341.md)
+- Lcd1602: [wokwi-lcd1602.md](displays/wokwi-lcd1602.md)
+- Lcd2004: [wokwi-lcd2004.md](displays/wokwi-lcd2004.md)
+- Led Bar Graph: [wokwi-led-bar-graph.md](displays/wokwi-led-bar-graph.md)
+- Led Matrix: [wokwi-led-matrix.md](displays/wokwi-led-matrix.md)
+- Max7219 Matrix: [wokwi-max7219-matrix.md](displays/wokwi-max7219-matrix.md)
+- Nokia 5110 Screen: [wokwi-nokia-5110-screen.md](displays/wokwi-nokia-5110-screen.md)
+- Ssd1306: [wokwi-ssd1306.md](displays/wokwi-ssd1306.md)
+- Tm1637 7Segment: [wokwi-tm1637-7segment.md](displays/wokwi-tm1637-7segment.md)
+- Tv: [wokwi-tv.md](displays/wokwi-tv.md)
+
+## 📡 Sensori
+- Bmp180: [board-bmp180.md](sensors/board-bmp180.md)
+- Mfrc522: [board-mfrc522.md](sensors/board-mfrc522.md)
+- Dht22: [wokwi-dht22.md](sensors/wokwi-dht22.md)
+- Ds18B20: [wokwi-ds18b20.md](sensors/wokwi-ds18b20.md)
+- Gas Sensor: [wokwi-gas-sensor.md](sensors/wokwi-gas-sensor.md)
+- Hc Sr04: [wokwi-hc-sr04.md](sensors/wokwi-hc-sr04.md)
+- Ir Receiver: [wokwi-ir-receiver.md](sensors/wokwi-ir-receiver.md)
+- Ky 040: [wokwi-ky-040.md](sensors/wokwi-ky-040.md)
+- Mpu6050: [wokwi-mpu6050.md](sensors/wokwi-mpu6050.md)
+- Ntc Temperature Sensor: [wokwi-ntc-temperature-sensor.md](sensors/wokwi-ntc-temperature-sensor.md)
+- Photoresistor Sensor: [wokwi-photoresistor-sensor.md](sensors/wokwi-photoresistor-sensor.md)
+- Pir Motion Sensor: [wokwi-pir-motion-sensor.md](sensors/wokwi-pir-motion-sensor.md)
+
+## ⚙️ Attuatori (Motori, LED, Relè)
+- A4988: [wokwi-a4988.md](actuators/wokwi-a4988.md)
+- Biaxial Stepper: [wokwi-biaxial-stepper.md](actuators/wokwi-biaxial-stepper.md)
+- Buzzer: [wokwi-buzzer.md](actuators/wokwi-buzzer.md)
+- Ks2E M Dc5: [wokwi-ks2e-m-dc5.md](actuators/wokwi-ks2e-m-dc5.md)
+- Led Ring: [wokwi-led-ring.md](actuators/wokwi-led-ring.md)
+- Led Strip: [wokwi-led-strip.md](actuators/wokwi-led-strip.md)
+- Led: [wokwi-led.md](actuators/wokwi-led.md)
+- Neopixel: [wokwi-neopixel.md](actuators/wokwi-neopixel.md)
+- Relay Module: [wokwi-relay-module.md](actuators/wokwi-relay-module.md)
+- Rgb Led: [wokwi-rgb-led.md](actuators/wokwi-rgb-led.md)
+- Servo: [wokwi-servo.md](actuators/wokwi-servo.md)
+- Stepper Motor: [wokwi-stepper-motor.md](actuators/wokwi-stepper-motor.md)
+
+## 🎛️ Input (Pulsanti, Switch, Potenziometri)
+- Analog Joystick: [wokwi-analog-joystick.md](inputs/wokwi-analog-joystick.md)
+- Dip Switch 8: [wokwi-dip-switch-8.md](inputs/wokwi-dip-switch-8.md)
+- Ir Remote: [wokwi-ir-remote.md](inputs/wokwi-ir-remote.md)
+- Membrane Keypad: [wokwi-membrane-keypad.md](inputs/wokwi-membrane-keypad.md)
+- Potentiometer: [wokwi-potentiometer.md](inputs/wokwi-potentiometer.md)
+- Pushbutton 6Mm: [wokwi-pushbutton-6mm.md](inputs/wokwi-pushbutton-6mm.md)
+- Pushbutton: [wokwi-pushbutton.md](inputs/wokwi-pushbutton.md)
+- Slide Potentiometer: [wokwi-slide-potentiometer.md](inputs/wokwi-slide-potentiometer.md)
+- Slide Switch: [wokwi-slide-switch.md](inputs/wokwi-slide-switch.md)
+
+## 🧠 Logica, Memorie e Varie
+- 74Hc165: [wokwi-74hc165.md](logic_and_misc/wokwi-74hc165.md)
+- 74Hc595: [wokwi-74hc595.md](logic_and_misc/wokwi-74hc595.md)
+- Clock Generator: [wokwi-clock-generator.md](logic_and_misc/wokwi-clock-generator.md)
+- Ds1307: [wokwi-ds1307.md](logic_and_misc/wokwi-ds1307.md)
+- Hx711: [wokwi-hx711.md](logic_and_misc/wokwi-hx711.md)
+- Logic Analyzer: [wokwi-logic-analyzer.md](logic_and_misc/wokwi-logic-analyzer.md)
+- Microsd Card: [wokwi-microsd-card.md](logic_and_misc/wokwi-microsd-card.md)
+- Nlsf595: [wokwi-nlsf595.md](logic_and_misc/wokwi-nlsf595.md)
+- Resistor: [wokwi-resistor.md](logic_and_misc/wokwi-resistor.md)
+- Text: [wokwi-text.md](logic_and_misc/wokwi-text.md)
+- Wifi Ap: [wokwi-wifi-ap.md](logic_and_misc/wokwi-wifi-ap.md)
+

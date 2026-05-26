@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -118.2, "left": -141.2, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 105.6, "left": 62.44, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -58.2,
+      "left": 166.2,
+      "rotate": 90,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -99.6,
+      "left": 51.8,
+      "attrs": { "color": "magenta" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -53.65,
+      "left": 9.6,
+      "attrs": { "value": "220000" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -58.2,
+      "left": 243,
+      "rotate": 90,
+      "attrs": { "color": "green", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.2", "bb1:bn.24", "black", [ "v0" ] ],
+    [ "bb1:bn.28", "bb1:35b.j", "black", [ "v0" ] ],
+    [ "esp:23", "bb1:33b.h", "magenta", [ "h0" ] ],
+    [ "bb1:bn.10", "bb1:14t.e", "black", [ "v0" ] ],
+    [ "esp:22", "bb1:21t.c", "green", [ "h0" ] ],
+    [ "bb1:bn.35", "bb1:43b.j", "black", [ "v0" ] ],
+    [ "esp:21", "bb1:41b.j", "magenta", [ "h0" ] ],
+    [ "btn1:1.l", "bb1:35t.a", "", [ "$bb" ] ],
+    [ "btn1:2.l", "bb1:33t.a", "", [ "$bb" ] ],
+    [ "btn1:1.r", "bb1:35b.f", "", [ "$bb" ] ],
+    [ "btn1:2.r", "bb1:33b.f", "", [ "$bb" ] ],
+    [ "led1:A", "bb1:21t.b", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:20t.b", "", [ "$bb" ] ],
+    [ "r2:1", "bb1:14t.c", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:20t.c", "", [ "$bb" ] ],
+    [ "btn2:1.l", "bb1:43t.a", "", [ "$bb" ] ],
+    [ "btn2:2.l", "bb1:41t.a", "", [ "$bb" ] ],
+    [ "btn2:1.r", "bb1:43b.f", "", [ "$bb" ] ],
+    [ "btn2:2.r", "bb1:41b.f", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
