@@ -35,6 +35,7 @@ Ci sono regole ferree da rispettare:
 
 ### 📚 Risorse Wokwi
 - [Libreria ESP32 Wokwi Locale](ESP32_Wokwi_Wiki/index.md) - Documentazione, Pinout e Configurazione Componenti.
+- [Schema Pinout ESP32](ESP32_Wokwi_Wiki/guides/SCHEMA ESP32.md) - Regole di allocazione pin e mappatura completa per l'agente AI.
 
 ### 🚀 Missioni
 - **Missione 1**: [Apri Sandbox](missions/mission_01/README.md)

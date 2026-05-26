@@ -6,6 +6,7 @@ Questa Wiki raccoglie la documentazione per l'ambiente di simulazione Wokwi, ott
 - Diagram Json: [diagram-json.md](guides/diagram-json.md)
 - Esp32 Boards: [esp32-boards.md](guides/esp32-boards.md)
 - Esp32 Wifi: [esp32-wifi.md](guides/esp32-wifi.md)
+- SCHEMA ESP32: [SCHEMA ESP32.md](guides/SCHEMA ESP32.md)
 
 ## 📺 Display e Matrici
 - Grove Oled Sh1107: [board-grove-oled-sh1107.md](displays/board-grove-oled-sh1107.md)
