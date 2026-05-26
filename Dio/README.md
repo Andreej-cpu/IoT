@@ -16,6 +16,11 @@ Ci sono regole ferree da rispettare:
 * **Sviluppo su Workspace:** Il codice finale per la missione richiesta deve essere generato e configurato all'interno del Workspace dedicato, partendo rigorosamente dai template strutturali predisposti.
 * **Integrazione Missioni:** La logica e l'implementazione del firmware devono basarsi direttamente sui file `.cpp` collocati nelle rispettive sottocartelle delle `missions`.
 * **Salvataggio delle Missioni:** Ogni volta che si richiede o completa una missione, i file `diagram.json` e `main.cpp` aggiornati devono essere salvati anche all'interno della cartella della rispettiva missione (es. `missions/mission_XX/`), oltre che nel Workspace.
+* **Uso della Breadboard:** Per lo schema del circuito (`diagram.json`), è necessario utilizzare una breadboard (`wokwi-breadboard-half`), strutturando il file in modo analogo ai file JSON già caricati per le missioni precedenti.
+* **Allineamento dei Pin (Coerenza Diagramma-Codice):** È fondamentale verificare sempre che i numeri dei GPIO definiti nel codice C++ (`main.cpp`) corrispondano esattamente ai pin fisici collegati nel diagramma (`diagram.json`). Per evitare malfunzionamenti nella simulazione (es. LED che non si accendono o pulsanti non rilevati):
+  * Verificare sempre l'assenza di disallineamenti ereditati da missioni passate.
+  * Evitare pin con funzioni speciali o condivise se non strettamente necessario (es. GPIO 21 spesso associato al bus I2C/SDA).
+  * Prediligere GPIO di uso generale puliti (es. GPIO 14, 22, 23, ecc.) e accertarsi che il circuito e il codice siano perfettamente sincronizzati.
 
 
 ### IL TUO OBIETTIVO COME AI:

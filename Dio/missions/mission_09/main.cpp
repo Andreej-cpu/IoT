@@ -57,7 +57,7 @@ void setup() {
   pinMode(pirPin, INPUT);
   pinMode(echoPin, INPUT);
 
-  // Assicuriamoci che i trigger partano bassi e i LED siano spenti
+  // Assicuraimoci che i trigger partano bassi e i LED siano spenti
   digitalWrite(trigPin, LOW);
   digitalWrite(yellowLedPin, LOW);
   digitalWrite(redLedPin, LOW);
