@@ -1,7 +1,7 @@
 #include <Arduino.h>
 
 // --- PIN CONFIGURATION ---
-const int pirPin = 12;       // Sensore PIR (GPIO 12)
+const int pirPin = 32;       // Sensore PIR (GPIO 32 - Pin USABLE non-strapping)
 const int yellowLedPin = 14; // LED Giallo (GPIO 14)
 const int redLedPin = 27;    // LED Rosso (GPIO 27)
 const int trigPin = 26;      // HC-SR04 TRIG (GPIO 26)
@@ -57,12 +57,12 @@ void setup() {
   pinMode(pirPin, INPUT);
   pinMode(echoPin, INPUT);
 
-  // Assicuraimoci che i trigger partano bassi e i LED siano spenti
+  // Assicuriamoci che i trigger partano bassi e i LED siano spenti
   digitalWrite(trigPin, LOW);
   digitalWrite(yellowLedPin, LOW);
   digitalWrite(redLedPin, LOW);
 
-  // Stato iniziale dei sensori
+  // Stato iniziale del sensore PIR
   motionDetected = digitalRead(pirPin);
   digitalWrite(yellowLedPin, motionDetected ? HIGH : LOW);
 
@@ -72,7 +72,7 @@ void setup() {
 
   Serial.println("--- MISSIONE 09: ULTRASONIC YO INIZIALIZZATA ---");
   Serial.print("Stato iniziale PIR: ");
-  Serial.println(motionDetected ? "Movimento!" : "Nessun movimento");
+  Serial.println(motionDetected ? "Movimento rilevato!" : "Nessun movimento");
   Serial.print("Soglia di allerta critica impostata a: ");
   Serial.print(thresholdDistanceCm);
   Serial.println(" cm");
@@ -85,8 +85,10 @@ void loop() {
   // 1. Invio del trigger per la misurazione a ultrasuoni ogni 500ms (non bloccante)
   if (currentMillis - lastTriggerTime >= triggerIntervalMs) {
     lastTriggerTime = currentMillis;
+    
+    // Genera l'impulso di trigger (10us HIGH)
     digitalWrite(trigPin, HIGH);
-    delayMicroseconds(10); // Impulso di trigger standard da 10us
+    delayMicroseconds(10);
     digitalWrite(trigPin, LOW);
   }
 
@@ -99,12 +101,12 @@ void loop() {
     if (echoEnd > echoStart) {
       duration = echoEnd - echoStart;
     }
-    echoStart = 0; // Resettiamo lo start per la misurazione successiva
+    echoStart = 0; // Resettiamo per la prossima misura
     newDistanceAvailable = false;
     interrupts();
 
     if (duration > 0) {
-      // Calcolo della distanza: tempo di volo diviso 58 (velocità del suono)
+      // Calcolo della distanza in cm (tempo di volo diviso 58)
       lastDistanceCm = (float)duration / 58.0;
 
       // Stampa la distanza rilevata

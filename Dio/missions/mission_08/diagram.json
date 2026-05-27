@@ -3,7 +3,7 @@
   "author": "Uri Shaked",
   "editor": "wokwi",
   "parts": [
-    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -99, "left": -122, "attrs": {} },
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -99, "left": -122, "attrs": {} },
     { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 153.6, "left": -14.36, "attrs": {} },
     {
       "type": "wokwi-resistor",
@@ -23,8 +23,8 @@
     {
       "type": "wokwi-pir-motion-sensor",
       "id": "pir1",
-      "top": -210,
-      "left": -70,
+      "top": -250,
+      "left": -100,
       "attrs": {}
     }
   ],
@@ -41,7 +41,7 @@
     [ "led1:C", "bb1:17b.g", "", [ "$bb" ] ],
     [ "pir1:VCC", "bb1:bp.10", "red", [ "h0" ] ],
     [ "pir1:GND", "bb1:bn.10", "black", [ "h0" ] ],
-    [ "pir1:OUT", "esp:12", "green", [ "h0" ] ]
+    [ "pir1:OUT", "esp:32", "green", [ "h0" ] ]
   ],
   "dependencies": {}
 }

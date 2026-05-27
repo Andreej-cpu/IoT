@@ -16,11 +16,22 @@ Ci sono regole ferree da rispettare:
 * **Sviluppo su Workspace:** Il codice finale per la missione richiesta deve essere generato e configurato all'interno del Workspace dedicato, partendo rigorosamente dai template strutturali predisposti.
 * **Integrazione Missioni:** La logica e l'implementazione del firmware devono basarsi direttamente sui file `.cpp` collocati nelle rispettive sottocartelle delle `missions`.
 * **Salvataggio delle Missioni:** Ogni volta che si richiede o completa una missione, i file `diagram.json` e `main.cpp` aggiornati devono essere salvati anche all'interno della cartella della rispettiva missione (es. `missions/mission_XX/`), oltre che nel Workspace.
-* **Uso della Breadboard:** Per lo schema del circuito (`diagram.json`), è necessario utilizzare una breadboard (`wokwi-breadboard-half`), strutturando il file in modo analogo ai file JSON già caricati per le missioni precedenti.
+* **Uso della Breadboard:** Per lo schema del circuito (`diagram.json`), è obbligatorio utilizzare la breadboard grande a 60 fori (`wokwi-breadboard`).
+* **Disposizione Realistica e Distanziata:** Tutti i componenti devono essere disposti in modo distanziato e ordinato sulla breadboard per rispecchiare un cablaggio reale e pratico. Evitare la sovrapposizione di componenti e fili nello stesso foro fisico (lasciare ad esempio un foro libero nella stessa colonna per i jumper di collegamento).
+* **Nessuna Sovrapposizione di Fili (Praticità):** I fili di collegamento non devono sovrapporsi o incrociarsi in modo disordinato. Tracciare i fili in modo ordinato (sfruttando gli array di coordinate per le curve nel `diagram.json`) affinché ogni percorso sia pulito, chiaro e replicabile nella realtà senza creare grovigli. Inoltre, **evitare che il percorso orizzontale o verticale di un filo passi sopra i punti di contatto (fori/pin) in cui sono già agganciati altri cavi**, per non nascondere le connessioni esistenti. A questo scopo, allineare i pin dei sensori esterni (es. PIR, HC-SR04) direttamente con le colonne corrette della breadboard in modo da scendere perfettamente in verticale (con `[ "v0" ]`) ed evitare percorsi orizzontali sovrapposti sui binari di alimentazione.
+  * *Nota per l'Agente AI:* Non ereditare cecamente configurazioni passate o di default (es. che fanno uso di `"h0"` per i sensori esterni) se queste violano le regole di allineamento verticale. Correggi sempre i percorsi in `"v0"` per garantire percorsi puliti e paralleli.
+  * **Attenzione alle Linee di Alimentazione/Massa (Split Power Rails):** Nelle breadboard grandi a 60 fori (`wokwi-breadboard`), i binari di alimentazione (`bp`) e massa (`bn`) sono divisi in due metà isolate al centro (colonne 1-29 e colonne 31-60). Collegare l'alimentazione/massa dell'ESP32 su una metà (es. sinistra) lascia l'altra metà completamente fluttuante (non alimentata). Quando colleghi a massa o a VCC un componente:
+    * Assicurati che il pin del binario appartenga alla stessa metà alimentata dall'ESP32.
+    * I pin del binario della metà sinistra vanno da `bn.1` a `bn.25` (dove `bn.25` è allineato alla colonna 29). I pin da `bn.26` in poi appartengono alla metà destra.
+    * Evita di usare pin non corrispondenti (es. usare `bn.29` per la colonna 29: in realtà `bn.29` si trova sulla colonna 34 della metà destra, che rimarrebbe isolata).
+* **Verifica Pinout (SCHEMA ESP32.md):** Prima di qualsiasi allocazione o modifica dei pin, consultare obbligatoriamente il file [SCHEMA ESP32.md](file:///home/andrea/Documenti/IoTLab/IoT/Dio/ESP32_Wokwi_Wiki/guides/SCHEMA%20ESP32.md) (o [SCHEMA ESP32.md](file:///home/andrea/Documenti/IoTLab/IoT/SCHEMA%20ESP32.md)) per verificare le restrizioni dei GPIO (es. evitare strapping pins come GPIO 12 o pin SPI flash).
+* **Divieto di Commenti nei file JSON (CRITICO):** Nei file `diagram.json`, **NON inserire mai commenti** (es. `//` o `/* */`). Lo standard JSON non supporta i commenti e la loro presenza genera crash o errori di parsing immediati nel simulatore Wokwi o nei tool di compilazione associati.
 * **Allineamento dei Pin (Coerenza Diagramma-Codice):** È fondamentale verificare sempre che i numeri dei GPIO definiti nel codice C++ (`main.cpp`) corrispondano esattamente ai pin fisici collegati nel diagramma (`diagram.json`). Per evitare malfunzionamenti nella simulazione (es. LED che non si accendono o pulsanti non rilevati):
   * Verificare sempre l'assenza di disallineamenti ereditati da missioni passate.
-  * Evitare pin con funzioni speciali o condivise se non strettamente necessario (es. GPIO 21 spesso associato al bus I2C/SDA).
-  * Prediligere GPIO di uso generale puliti (es. GPIO 14, 22, 23, ecc.) e accertarsi che il circuito e il codice siano perfettamente sincronizzati.
+  * Evitare pin con funzioni speciali o condivise se non strettamente necessario.
+  * Prediligere GPIO di uso generale puliti (es. GPIO 14, 22, 23, 32, ecc.) e accertarsi che il circuito e il codice siano perfettamente sincronizzati.
+* **Convenzione Allocazione Pin:** Utilizzare in ordine di priorità i pin: Analog Read su GPIO 34, poi GPIO 23, 22, 21, 19, 18, 17.
+
 
 
 ### IL TUO OBIETTIVO COME AI:
@@ -33,9 +44,10 @@ Ci sono regole ferree da rispettare:
 
 ## 🗺️ Mappa di Navigazione
 
-### 📚 Risorse Wokwi
+### 📚 Risorse Didattiche e Wokwi
 - [Libreria ESP32 Wokwi Locale](ESP32_Wokwi_Wiki/index.md) - Documentazione, Pinout e Configurazione Componenti.
 - [Schema Pinout ESP32](ESP32_Wokwi_Wiki/guides/SCHEMA ESP32.md) - Regole di allocazione pin e mappatura completa per l'agente AI.
+- [Indice Materiale Prof](INDICE MATERIALE PROF.md) - Indice degli argomenti trattati nelle slide del professore (situate nella cartella `SLIDE PROF/`). L'agente AI deve consultare questo indice e le relative slide PDF per approfondire la teoria e la configurazione di sensori, timer, interrupt e protocolli.
 
 ### 🚀 Missioni
 - **Missione 1**: [Apri Sandbox](missions/mission_01/README.md)

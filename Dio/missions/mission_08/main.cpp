@@ -1,7 +1,7 @@
 #include <Arduino.h>
 
 // --- PIN CONFIGURATION ---
-const int pirPin = 12;  // Pin di input per il sensore PIR (GPIO 12)
+const int pirPin = 32;  // Pin di input per il sensore PIR (GPIO 32, pin USABLE non-strapping)
 const int ledPin = 14;  // Pin di output per il LED Giallo (GPIO 14)
 
 // --- STATE VARIABLES (volatile for Interrupts) ---
